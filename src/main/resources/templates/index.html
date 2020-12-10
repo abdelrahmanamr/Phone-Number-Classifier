@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+ 
+<html>
+<head>
+    <title>Spring Boot - Angularjs Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="/js/controller.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    
+</head>
+<body>
+ 
+<div class="container" ng-app="app">
+ 
+  <h3 style="color:blue">Customers Page</h3>
+  
+  <div class="col-sm-offset-2 col-sm-10" ng-controller="getcontroller">
+		<button id="btn-id" type="button" class="btn btn-primary" ng-click="getfunction()">Get All Customers</button>
+		<ul>
+          <li ng-repeat="cust in response">{{cust.id + " - " + cust.name + " - " + cust.phoneNumber}}</li>
+    	</ul>
+	</div>
+	
+  <div ng-controller="angularcontroller">
+  <form ng-submit="submitForm()" class="form-horizontal" name="customerForm">
+        &nbsp;&nbsp;&nbsp;
+        Search by country name:
+        <input type="text" ng-model="country"><br>&nbsp;&nbsp;&nbsp;
+
+        <input type="submit" value="Submit"/>
+
+        <ul>
+          <li ng-repeat="data in response">{{data.customer.id + " - " + data.customer.name + " - " + data.customer.phoneNumber + " - " + data.valid }}</li>
+        </ul>
+    </form>
+  
+  </div>
+
+  
+</div>
+</body>
+</html>
